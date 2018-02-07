@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F3578BDB-5F72-411B-8AC6-98AA6A9E3D69}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ClientChat</RootNamespace>
+    <RootNamespace>SharpChat</RootNamespace>
     <AssemblyName>ClientChat</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -66,6 +66,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\FocusExtension.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ViewModels\EditLineViewModel.cs" />
+    <Compile Include="ViewModels\FileViewModel.cs" />
+    <Compile Include="ViewModels\HeadLineViewModel.cs" />
+    <Compile Include="ViewModels\MessagesFeedViewModel.cs" />
+    <Compile Include="ViewModels\MessageBlockViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\EditLineView.xaml.cs">
+      <DependentUpon>EditLineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileView.xaml.cs">
+      <DependentUpon>FileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HeadLineView.xaml.cs">
+      <DependentUpon>HeadLineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessagesFeedView.xaml.cs">
+      <DependentUpon>MessagesFeedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageBlockView.xaml.cs">
+      <DependentUpon>MessageBlockView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +104,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\EditLineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FileView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HeadLineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessagesFeedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessageBlockView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

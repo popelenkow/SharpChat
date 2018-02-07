@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace ClientChat
+namespace SharpChat
 {
     /// <summary>
     /// Логика взаимодействия для App.xaml
