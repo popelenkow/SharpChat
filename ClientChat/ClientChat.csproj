@@ -68,20 +68,17 @@
     </ApplicationDefinition>
     <Compile Include="Behaviors\FocusExtension.cs" />
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="ViewModels\EditLineViewModel.cs" />
-    <Compile Include="ViewModels\FileViewModel.cs" />
-    <Compile Include="ViewModels\HeadLineViewModel.cs" />
+    <Compile Include="ViewModels\EditChatLineViewModel.cs" />
+    <Compile Include="ViewModels\HeadChatLineViewModel.cs" />
+    <Compile Include="ViewModels\ISender.cs" />
     <Compile Include="ViewModels\MessagesFeedViewModel.cs" />
     <Compile Include="ViewModels\MessageBlockViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="Views\EditLineView.xaml.cs">
-      <DependentUpon>EditLineView.xaml</DependentUpon>
+    <Compile Include="Views\EditChatLineView.xaml.cs">
+      <DependentUpon>EditChatLineView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FileView.xaml.cs">
-      <DependentUpon>FileView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\HeadLineView.xaml.cs">
-      <DependentUpon>HeadLineView.xaml</DependentUpon>
+    <Compile Include="Views\HeadChatLineView.xaml.cs">
+      <DependentUpon>HeadChatLineView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MessagesFeedView.xaml.cs">
       <DependentUpon>MessagesFeedView.xaml</DependentUpon>
@@ -92,27 +89,15 @@
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Views\EditLineView.xaml">
+    <Page Include="Views\EditChatLineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FileView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\HeadLineView.xaml">
+    <Page Include="Views\HeadChatLineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -155,6 +140,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetworkLibrary\NetworkLibrary.csproj">
+      <Project>{a6ec7bb9-ec83-4887-abba-bd5ed7f08dd3}</Project>
+      <Name>NetworkLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

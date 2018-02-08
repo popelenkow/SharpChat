@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\App.xaml
-7-205162105
+5-1895370248
 
-19-1619202602
-70-1723388808
-MainWindow.xaml;Views\EditLineView.xaml;Views\FileView.xaml;Views\HeadLineView.xaml;Views\MessagesFeedView.xaml;Views\MessageBlockView.xaml;Views\ShellView.xaml;
+171071690336
+711289674013
+Views\EditChatLineView.xaml;Views\HeadChatLineView.xaml;Views\MessagesFeedView.xaml;Views\MessageBlockView.xaml;Views\ShellView.xaml;
 
 False
 

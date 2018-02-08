@@ -131,3 +131,5 @@ C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ServerChat\obj\Debug\Serv
 C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ServerChat\obj\Debug\ServerChat.csproj.CoreCompileInputs.cache
 C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ServerChat\obj\Debug\ServerChat.exe
 C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ServerChat\obj\Debug\ServerChat.pdb
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ServerChat\bin\Debug\NetworkLibrary.dll
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ServerChat\bin\Debug\NetworkLibrary.pdb

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientChat", "ClientChat\Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerChat", "ServerChat\ServerChat.csproj", "{FF47D4A9-2C1C-4A80-A0AE-D4A3A46201FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{707FEE7F-3796-4833-B827-E2FBAD2593F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkLibrary", "NetworkLibrary\NetworkLibrary.csproj", "{A6EC7BB9-EC83-4887-ABBA-BD5ED7F08DD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{FF47D4A9-2C1C-4A80-A0AE-D4A3A46201FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF47D4A9-2C1C-4A80-A0AE-D4A3A46201FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF47D4A9-2C1C-4A80-A0AE-D4A3A46201FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{707FEE7F-3796-4833-B827-E2FBAD2593F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{707FEE7F-3796-4833-B827-E2FBAD2593F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{707FEE7F-3796-4833-B827-E2FBAD2593F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{707FEE7F-3796-4833-B827-E2FBAD2593F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6EC7BB9-EC83-4887-ABBA-BD5ED7F08DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6EC7BB9-EC83-4887-ABBA-BD5ED7F08DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6EC7BB9-EC83-4887-ABBA-BD5ED7F08DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6EC7BB9-EC83-4887-ABBA-BD5ED7F08DD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
