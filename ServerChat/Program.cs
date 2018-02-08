@@ -8,13 +8,15 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using SharpChat.Packets;
 
-namespace ServerChat
+namespace SharpChat
 {
     class Program
     {
         static void Main(string[] args)
         {
+            TcpClient client = null;
             TcpListener server = null;
             try
             {
@@ -28,47 +30,34 @@ namespace ServerChat
                 // Start listening for client requests.
                 server.Start();
 
-                // Buffer for reading data
-                Byte[] bytes = new Byte[256];
-                String data = null;
-
+                
                 // Enter the listening loop.
+
+                Console.WriteLine("Waiting for a connection... ");
+
+                // Perform a blocking call to accept requests.
+                // You could also user server.AcceptSocket() here.
+                Task<TcpClient> taskClient = server.AcceptTcpClientAsync();
+                while (!taskClient.IsCompleted)
+                {
+                    Thread.Sleep(3000);
+                    Console.WriteLine(".");
+                }
+                client = taskClient.Result;
+                Console.WriteLine("Connected!");
+
+                
+                
+                var manager = new NetworkManager();
+                manager.Client = client;
                 while (true)
                 {
-                    Console.WriteLine("Waiting for a connection... ");
-
-                    // Perform a blocking call to accept requests.
-                    // You could also user server.AcceptSocket() here.
-                    Task<TcpClient> taskClient = server.AcceptTcpClientAsync();
-                    while (!taskClient.IsCompleted)
-                    {
-                        Thread.Sleep(3000);
-                        Console.WriteLine(".");
-                    }
-                    TcpClient client = taskClient.Result;
-                    Console.WriteLine("Connected!");
-                    data = null;
-
-                    // Get a stream object for reading and writing
-                    NetworkStream stream = client.GetStream();
-
-                    int i;
-                    // Loop to receive all the data sent by the client.
-                    while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
-                    {
-                        BinaryFormatter bf1 = new BinaryFormatter();
-                        MemoryStream ms = new MemoryStream();
-                        ms.Write(bytes, 0, bytes.Length);
-                        ms.Position = 0;
-                        object rawObj = bf1.Deserialize(ms);
-                        rawObj = bf1.Deserialize(ms);
-                        rawObj = bf1.Deserialize(ms);
-
-                    }
-
-                    // Shutdown and end connection
-                    client.Close();
+                    Thread.Sleep(1000);
+                    manager.Send(new RequestPacket());
+                    IPacket p = manager.Receive();
+                    Console.WriteLine(p?.GetType());
                 }
+                
             }
             catch (SocketException e)
             {
@@ -76,6 +65,7 @@ namespace ServerChat
             }
             finally
             {
+                client.Close();
                 // Stop listening for new clients.
                 server.Stop();
             }

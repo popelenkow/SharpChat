@@ -3,3 +3,4 @@ C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\NetworkLibrary\bin\Debug\
 C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\NetworkLibrary\obj\Debug\NetworkLibrary.csproj.CoreCompileInputs.cache
 C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\NetworkLibrary\obj\Debug\NetworkLibrary.dll
 C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\NetworkLibrary\obj\Debug\NetworkLibrary.pdb
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\NetworkLibrary\obj\Debug\NetworkLibrary.csprojResolveAssemblyReference.cache

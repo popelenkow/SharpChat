@@ -10,35 +10,43 @@ using System.Threading;
 using System.Threading.Tasks;
 using SharpChat.Packets;
 
-namespace ConsoleApp1
+namespace SharpChat
 {
     class Program
     {
         static void Main(string[] args)
         {
-            IPEndPoint ipServer = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 13000);
-            TcpClient client = new TcpClient();
-            client.Connect(ipServer);
-            var p1 = new EmptyPacket();
-            var p2 = new RequestPacket();
-
-            byte[] userDataBytes;
-            MemoryStream ms = new MemoryStream();
-
-            BinaryFormatter bf1 = new BinaryFormatter();
-
-            bf1.Serialize(ms, p1);
-            bf1.Serialize(ms, p2);
-
-            userDataBytes = ms.ToArray();
-
-            var s = client.GetStream();
-            s.Write(userDataBytes, 0, userDataBytes.Length);
-
-            while (true)
+            TcpClient client = null;
+            try
             {
-                Thread.Sleep(1000);
+                IPEndPoint ipServer = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 13000);
+                client = new TcpClient();
+                client.Connect(ipServer);
+
+                var manager = new NetworkManager();
+                manager.Client = client;
+                
+                while (true)
+                {
+                    Thread.Sleep(2000);
+                    manager.Send(new RequestPacket());
+                    IPacket p = manager.Receive();
+                    Console.WriteLine(p?.GetType());
+                }
+
             }
+            catch (SocketException e)
+            {
+                Console.WriteLine("SocketException: {0}", e);
+            }
+            finally
+            {
+                client.Close();
+                // Stop listening for new clients.
+            }
+
+
+           
         }
     }
 }
