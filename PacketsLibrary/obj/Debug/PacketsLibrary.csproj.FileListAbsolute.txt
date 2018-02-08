@@ -1,6 +1,0 @@
-C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PacketsLibrary\bin\Debug\PacketsLibrary.dll
-C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PacketsLibrary\bin\Debug\PacketsLibrary.pdb
-C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PacketsLibrary\obj\Debug\PacketsLibrary.csprojResolveAssemblyReference.cache
-C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PacketsLibrary\obj\Debug\PacketsLibrary.csproj.CoreCompileInputs.cache
-C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PacketsLibrary\obj\Debug\PacketsLibrary.dll
-C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PacketsLibrary\obj\Debug\PacketsLibrary.pdb
