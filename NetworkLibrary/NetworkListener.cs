@@ -12,39 +12,38 @@ namespace SharpChat.Network
     public class NetworkListener
     {
         private TcpListener _listener;
+        private Task<TcpClient> _task;
+        private bool _isOpen;
+
         public NetworkListener()
         {
             Int32 port = 13000;
             IPAddress localAddr = IPAddress.Parse("127.0.0.1");
-
-            _listener = new TcpListener(localAddr, port);
-
-            _listener.Server.ReceiveTimeout = 10;
-            _listener.Server.SendTimeout = 10;
-        }
-        public bool IsOpen { get; private set; }
-        public void Open()
-        {
             try
             {
-                if (!IsOpen)
-                {
-                    IsOpen = true;
-                    _listener.Start();
-                }
+                _listener = new TcpListener(localAddr, port);
+                _listener.Start();
+
+                _isOpen = true;
+                _task = _listener.AcceptTcpClientAsync();
+
             }
             catch (SocketException ex)
             {
+                _isOpen = false;
                 Debug.WriteLine("Listener open crash: " + ex.ToString());
             }
-}
+
+        }
+        
+
         public void Close()
         {
             try
             {
-                if (IsOpen)
+                if (_isOpen)
                 {
-                    IsOpen = false;
+                    _isOpen = false;
                     _listener.Stop();
                 }
             }
@@ -59,9 +58,13 @@ namespace SharpChat.Network
             TcpClient client = null;
             try
             {
-                if (IsOpen)
+                if (_isOpen)
                 {
-                    client = _listener.AcceptTcpClient();
+                    if (_task.IsCompleted)
+                    {
+                        client = _task.Result;
+                        _task = _listener.AcceptTcpClientAsync();
+                    }
                 }
             }
             catch (InvalidOperationException ex)
@@ -72,6 +75,7 @@ namespace SharpChat.Network
             {
                 Debug.WriteLine("Listener accept crash: " + ex.ToString());
             }
+            if (client == null) return null; 
             return new NetworkConnector(client);
         }
     }

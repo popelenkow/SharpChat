@@ -12,7 +12,7 @@ namespace SharpChat.PacketHandlers.Implementations
 {
     class EmptyPacketHandler : PacketHandlerBase<EmptyPacket, IUser>
     {
-        public override void Call(EmptyPacket packet, IUser sender, NetworkConnector connection, Server state)
+        public override void Call(EmptyPacket packet, IUser sender, NetworkConnector Connector, Server state)
         {
         }
     }

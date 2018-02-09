@@ -9,49 +9,42 @@ using System.Threading;
 using System.Threading.Tasks;
 using SharpChat.PacketHandlers;
 using SharpChat.Network;
+using SharpChat.ServerInfo.Users;
 
 namespace SharpChat
 {
     class ServerManager
     {
         private NetworkListener _listener;
-        private List<(bool IsOk, NetworkConnector Manager)> _clients;
+        private List<IUser> _users = new List<IUser>();
         public ServerManager()
         {
             _listener = new NetworkListener();
         }
         public void Run()
         {
-            NetworkConnector nc = null;
             try
             {
-                _listener.Open();
 
-
-
-                // Enter the listening loop.
-
-                Console.WriteLine("Waiting for a connection... ");
-
-                // Perform a blocking call to accept requests.
-                // You could also user server.AcceptSocket() here.
-                while(nc == null)
-                {
-                    Thread.Sleep(3000);
-                    Console.WriteLine(".");
-                    nc = _listener.GetConnector();
-                }
-                Console.WriteLine("Connected!");
-
-
-
+                Console.WriteLine("Open");
                 while (true)
                 {
-                    Thread.Sleep(1000);
-                    nc.Send(new EmptyPacket());
-                    IPacket p = nc.Receive();
-                    Console.WriteLine(p?.GetType());
-                    p?.Handle(null, null, null);
+                    Thread.Sleep(50);
+                    var nc = _listener.GetConnector();
+                    if (nc != null)
+                    {
+                        _users.Add(new Spectator { Connector = nc });
+                        Console.WriteLine("Connected!");
+                    }
+                    foreach(var user in _users)
+                    {
+                        var pc = user.Receive();
+                        if (pc.Packet != null)
+                        {
+                            Console.WriteLine(pc.Packet.GetType());
+                        }
+                        pc.Packet?.Handle(user, pc.Connector, null);
+                    }
                 }
 
             }
@@ -61,7 +54,10 @@ namespace SharpChat
             }
             finally
             {
-                nc.Close();
+                foreach(var user in _users)
+                {
+                    user.Close();
+                }
                 // Stop listening for new clients.
                 _listener.Close();
             }

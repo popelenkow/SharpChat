@@ -18,10 +18,10 @@ namespace SharpChat.PacketHandlers
         {
             _dispatcher = new DispatcherMultiMethod<IPacketHandler<IPacket, IUser>>();
         }
-        public static void Handle(this IPacket packet, IUser sender, NetworkConnector connection, Server state)
+        public static void Handle(this IPacket packet, IUser sender, NetworkConnector connector, Server state)
         {
-            _dispatcher.GetMethod(packet)
-                       .Call(packet, state);
+            _dispatcher.GetMethod(packet, sender)
+                       .Call(packet, sender, connector, state);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace SharpChat.PacketHandlers.Implementations
 {
     class MessagePacketHandler : PacketHandlerBase<MessagePacket, Profile>
     {
-        public override void Call(MessagePacket packet, Profile sender, NetworkConnector connection, Server state)
+        public override void Call(MessagePacket packet, Profile sender, NetworkConnector Connector, Server state)
         {
             throw new NotImplementedException();
         }

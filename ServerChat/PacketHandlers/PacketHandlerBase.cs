@@ -15,6 +15,6 @@ namespace SharpChat.PacketHandlers
         where TPacket : IPacket
         where TUser : IUser
     {
-        public abstract void Call(TPacket packet, TUser sender, NetworkConnector connection, Server state);
+        public abstract void Call(TPacket packet, TUser sender, NetworkConnector Connector, Server state);
     }
 }

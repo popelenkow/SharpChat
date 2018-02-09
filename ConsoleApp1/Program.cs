@@ -25,9 +25,13 @@ namespace SharpChat
                 while (true)
                 {
                     Thread.Sleep(2000);
-                    connector.Send(new EmptyPacket());
-                    IPacket p = connector.Receive();
-                    Console.WriteLine(p?.GetType());
+                    IPacket sp = new RequestPacket
+                    {
+                        Info = RequestPacket.RequestInfo.Empty
+                    };
+                    connector.Send(sp);
+                    IPacket rp = connector.Receive();
+                    Console.WriteLine(rp?.GetType());
                 }
 
             }
