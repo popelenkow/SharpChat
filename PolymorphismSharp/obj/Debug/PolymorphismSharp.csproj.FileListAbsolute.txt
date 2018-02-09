@@ -1,0 +1,6 @@
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PolymorphismSharp\bin\Debug\PolymorphismSharp.dll
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PolymorphismSharp\bin\Debug\PolymorphismSharp.pdb
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PolymorphismSharp\obj\Debug\PolymorphismSharp.csprojResolveAssemblyReference.cache
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PolymorphismSharp\obj\Debug\PolymorphismSharp.csproj.CoreCompileInputs.cache
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PolymorphismSharp\obj\Debug\PolymorphismSharp.dll
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\PolymorphismSharp\obj\Debug\PolymorphismSharp.pdb

@@ -1,5 +1,5 @@
 ﻿using Caliburn.Micro;
-using SharpChat.Packets;
+using SharpChat.Network.Packets;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

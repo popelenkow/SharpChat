@@ -7,10 +7,11 @@
     <ProjectGuid>{A6EC7BB9-EC83-4887-ABBA-BD5ED7F08DD3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpChat</RootNamespace>
+    <RootNamespace>SharpChat.Network</RootNamespace>
     <AssemblyName>NetworkLibrary</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NetworkManager.cs" />
+    <Compile Include="NetworkConnector.cs" />
+    <Compile Include="NetworkListener.cs" />
     <Compile Include="Packets\EmptyPacket.cs" />
     <Compile Include="Packets\ErrorPacket.cs" />
     <Compile Include="Packets\IdChatGroupInfoPacket.cs" />

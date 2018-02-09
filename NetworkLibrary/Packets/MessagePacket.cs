@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharpChat.Packets
+namespace SharpChat.Network.Packets
 {
     [Serializable]
     public class MessagePacket : IPacket

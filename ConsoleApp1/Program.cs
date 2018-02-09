@@ -8,7 +8,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using SharpChat.Packets;
+using SharpChat.Network;
+using SharpChat.Network.Packets;
 
 namespace SharpChat
 {
@@ -19,18 +20,13 @@ namespace SharpChat
             TcpClient client = null;
             try
             {
-                IPEndPoint ipServer = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 13000);
-                client = new TcpClient();
-                client.Connect(ipServer);
-
-                var manager = new NetworkManager();
-                manager.Client = client;
+                var connector = NetworkConnector.GetClientConnector();
                 
                 while (true)
                 {
                     Thread.Sleep(2000);
-                    manager.Send(new RequestPacket());
-                    IPacket p = manager.Receive();
+                    connector.Send(new EmptyPacket());
+                    IPacket p = connector.Receive();
                     Console.WriteLine(p?.GetType());
                 }
 
@@ -44,9 +40,6 @@ namespace SharpChat
                 client.Close();
                 // Stop listening for new clients.
             }
-
-
-           
         }
     }
 }

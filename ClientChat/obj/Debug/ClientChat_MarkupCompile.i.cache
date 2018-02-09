@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\popel\YandexDisk\Prog\DotNet\SharpChat\ClientChat\obj\Debug\
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\obj\Debug\
 SharpChat
 none
 false
 DEBUG;TRACE
-C:\Users\popel\YandexDisk\Prog\DotNet\SharpChat\ClientChat\App.xaml
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\App.xaml
 5-1895370248
 
-211561332512
-711040862099
+21-742369839
+71-212638145
 Views\EditChatLineView.xaml;Views\HeadChatLineView.xaml;Views\MessagesFeedView.xaml;Views\MessageBlockView.xaml;Views\ShellView.xaml;
 
-True
+False
 

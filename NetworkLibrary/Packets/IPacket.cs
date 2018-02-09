@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharpChat.Packets
+namespace SharpChat.Network.Packets
 {
     public interface IPacket
     {
