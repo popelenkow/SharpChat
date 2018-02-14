@@ -23,17 +23,20 @@ namespace SharpChat
         }
         public void Run()
         {
+            int id = 0;
             try
             {
-
                 Console.WriteLine("Open");
                 while (true)
                 {
-                    Thread.Sleep(50);
-                    var nc = _listener.GetConnector();
+                    Thread.Sleep(10);
+                    var nc = _listener.GetServerConnector();
                     if (nc != null)
                     {
-                        _users.Add(new Spectator { Connector = nc });
+                        var user = new Profile();
+                        user.Connectors.Add(nc);
+                        user.Id = id++;
+                        _users.Add(user);
                         Console.WriteLine("Connected!");
                     }
                     foreach(var user in _users)

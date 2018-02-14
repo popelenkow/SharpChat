@@ -16,7 +16,7 @@ namespace SharpChat
     {
         static void Main(string[] args)
         {
-
+            
             ServerManager sm = new ServerManager();
             sm.Run();
         }

@@ -111,9 +111,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PacketHandlers\ExtentionPacketHandler.cs" />
-    <Compile Include="PacketHandlers\Implementations\EmptyPacketHandler.cs" />
-    <Compile Include="PacketHandlers\Implementations\MessagePacketHandler.cs" />
-    <Compile Include="PacketHandlers\Implementations\RequestPacketHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\ConnectionHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\SendMessageHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\EmptyHandler.cs" />
     <Compile Include="PacketHandlers\IPacketHandler.cs" />
     <Compile Include="PacketHandlers\PacketHandlerBase.cs" />
     <Compile Include="Program.cs" />

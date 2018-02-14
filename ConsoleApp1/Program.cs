@@ -10,6 +10,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using SharpChat.Network;
 using SharpChat.Network.Packets;
+using SharpChat.Network.Packets.Requests;
+using SharpChat.Network.Packets.Responses;
 
 namespace SharpChat
 {
@@ -17,6 +19,7 @@ namespace SharpChat
     {
         static void Main(string[] args)
         {
+            int id = 0;
             TcpClient client = null;
             try
             {
@@ -25,12 +28,15 @@ namespace SharpChat
                 while (true)
                 {
                     Thread.Sleep(2000);
-                    IPacket sp = new RequestPacket
+                    var sp = new SendMessageRequest
                     {
-                        Info = RequestPacket.RequestInfo.Empty
+                        IdChat = 4,
+                        InnerId = id++,
+                        IsPersonChat = true,
+                        Text = "fdfsdff"
                     };
                     connector.Send(sp);
-                    IPacket rp = connector.Receive();
+                    var rp = connector.Receive();
                     Console.WriteLine(rp?.GetType());
                 }
 

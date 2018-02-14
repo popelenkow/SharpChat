@@ -12,6 +12,6 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0" x:Name="Id" HorizontalAlignment="Left"/>
-        <TextBlock Grid.Column="1" x:Name="Name" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" x:Name="Name" HorizontalAlignment="Center"/>
     </Grid>
 </UserControl>

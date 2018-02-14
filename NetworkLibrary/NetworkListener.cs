@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SharpChat.Network.Packets.Requests;
+using SharpChat.Network.Packets.Responses;
+using System;
 using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SharpChat.Network
@@ -53,7 +52,7 @@ namespace SharpChat.Network
             }
            
         }
-        public NetworkConnector GetConnector()
+        public INetworkServerConnector GetServerConnector()
         {
             TcpClient client = null;
             try
@@ -76,7 +75,7 @@ namespace SharpChat.Network
                 Debug.WriteLine("Listener accept crash: " + ex.ToString());
             }
             if (client == null) return null; 
-            return new NetworkConnector(client);
+            return NetworkConnector.GetServerConnector(client);
         }
     }
 }

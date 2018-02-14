@@ -1,5 +1,7 @@
 ﻿using SharpChat.Network;
 using SharpChat.Network.Packets;
+using SharpChat.Network.Packets.Requests;
+using SharpChat.Network.Packets.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,11 @@ namespace SharpChat.ServerInfo.Users
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<NetworkConnector> Connectors { get; set; }
+        public List<INetworkServerConnector> Connectors { get; set; } = new List<INetworkServerConnector>();
 
       
 
-        public (IPacket Packet, NetworkConnector Connector) Receive()
+        public (IPacketRequest Packet, INetworkServerConnector Connector) Receive()
         {
             foreach(var nc in Connectors)
             {
@@ -29,7 +31,7 @@ namespace SharpChat.ServerInfo.Users
             return (null, null);
         }
 
-        public void Send(IPacket packet)
+        public void Send(IPacketResponse packet)
         {
             foreach (var nc in Connectors)
             {

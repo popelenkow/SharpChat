@@ -29,8 +29,8 @@ namespace SharpChat.ViewModels
                 NotifyOfPropertyChange(() => Id);
             }
         }
-        private string _idPerson;
-        public string IdPerson
+        private int _idPerson;
+        public int IdPerson
         {
             get { return _idPerson; }
             set

@@ -41,17 +41,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="INetworkClientConnector.cs" />
+    <Compile Include="INetworkServerConnector.cs" />
+    <Compile Include="InnerConnectors\NetworkClientConnector.cs" />
     <Compile Include="NetworkConnector.cs" />
+    <Compile Include="InnerConnectors\NetworkConnectorBase.cs" />
     <Compile Include="NetworkListener.cs" />
-    <Compile Include="Packets\EmptyPacket.cs" />
-    <Compile Include="Packets\ErrorPacket.cs" />
-    <Compile Include="Packets\IdChatGroupInfoPacket.cs" />
-    <Compile Include="Packets\IdChatPersonInfoPacket.cs" />
-    <Compile Include="Packets\IdPersonInfoPacket.cs" />
+    <Compile Include="InnerConnectors\NetworkServerConnector.cs" />
+    <Compile Include="Packets\Requests\ConnectionRequest.cs" />
+    <Compile Include="Packets\Requests\LogInRequest.cs" />
+    <Compile Include="Packets\Requests\PacketRequestBase.cs" />
+    <Compile Include="Packets\Requests\SignUpRequest.cs" />
+    <Compile Include="Packets\Responses\ConnectionResponse.cs" />
+    <Compile Include="Packets\Responses\EmptyResponse.cs" />
+    <Compile Include="Packets\Responses\GroupChatInfoResponse.cs" />
+    <Compile Include="Packets\Requests\IPacketRequest.cs" />
+    <Compile Include="Packets\Responses\IPacketResponse.cs" />
+    <Compile Include="Packets\Responses\LogInResponse.cs" />
+    <Compile Include="Packets\Responses\PacketResponseBase.cs" />
+    <Compile Include="Packets\Responses\PersonChatInfoResponse.cs" />
     <Compile Include="Packets\IPacket.cs" />
-    <Compile Include="Packets\MessagePacket.cs" />
+    <Compile Include="Packets\Requests\SendMessageRequest.cs" />
+    <Compile Include="Packets\Responses\SendMessageResponse.cs" />
+    <Compile Include="Packets\Requests\GroupChatInfoRequest.cs" />
+    <Compile Include="Packets\Requests\PersonChatInfoRequest.cs" />
+    <Compile Include="Packets\Requests\EmptyRequest.cs" />
+    <Compile Include="Packets\Responses\MyProfileInfoResponse.cs" />
+    <Compile Include="Packets\Requests\MyProfileInfoRequest.cs" />
+    <Compile Include="Packets\Requests\ProfileInfoRequest.cs" />
+    <Compile Include="Packets\Responses\ProfileInfoResponse.cs" />
+    <Compile Include="Packets\Responses\SignUpResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Packets\RequestPacket.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

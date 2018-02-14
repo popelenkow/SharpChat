@@ -5,11 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SharpChat.Network.Packets;
+using SharpChat.Manager;
+using SharpChat.Extentions;
 
 namespace SharpChat.ViewModels
 {
     class EditChatLineViewModel : PropertyChangedBase
     {
+        private IClientManager _manager;
+
         private string _edit;
         public string Edit
         {
@@ -18,21 +22,34 @@ namespace SharpChat.ViewModels
             {
                 _edit = value;
                 NotifyOfPropertyChange(() => Edit);
-                NotifyOfPropertyChange(() => CanSend);
             }
         }
-
-        public ISender Sender { get; set; }
 
         public bool CanSend
         {
             get { return !string.IsNullOrWhiteSpace(Edit); }
         }
+        private void SubscribeCanSendChanged()
+        {
+            this.PropertyChanged += ((sender, e) =>
+            {
+                if (e.PropertyName.IsEqualsOf("Edit"))
+                {
+                    NotifyOfPropertyChange(() => CanSend);
+                }
+            });
+        }
+
         public void Send()
         {
-            Sender?.Send(Edit);
+            _manager.SendMessage(Edit);
             Edit = string.Empty;
         }
         
+        public EditChatLineViewModel(IClientManager manager)
+        {
+            _manager = manager;
+            SubscribeCanSendChanged();
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace SharpChat.Network.Packets
 {
     public interface IPacket
     {
+        int InnerId { get; set; }
     }
 }

@@ -69,23 +69,52 @@
     </ApplicationDefinition>
     <Compile Include="Behaviors\FocusExtension.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Extentions\IsEqualsOfExtention.cs" />
+    <Compile Include="Extentions\IsOneOfExtention.cs" />
+    <Compile Include="Manager\ConnectionInspector.cs" />
+    <Compile Include="Manager\IClientManager.cs" />
+    <Compile Include="Manager\IConnectionInspector.cs" />
+    <Compile Include="PacketHandlers\ExtentionPacketHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\ConnectionHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\EmptyHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\SendMessageHandler.cs" />
+    <Compile Include="PacketHandlers\IPacketHandler.cs" />
+    <Compile Include="PacketHandlers\PacketHandlerBase.cs" />
+    <Compile Include="ViewModels\ChatGridViewModel.cs" />
     <Compile Include="ViewModels\EditChatLineViewModel.cs" />
     <Compile Include="ViewModels\HeadChatLineViewModel.cs" />
-    <Compile Include="ViewModels\ISender.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MessagesFeedViewModel.cs" />
     <Compile Include="ViewModels\MessageBlockViewModel.cs" />
+    <Compile Include="ViewModels\ProfileLineViewModel.cs" />
+    <Compile Include="ViewModels\ServerStateLineViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModel.Manager.cs" />
+    <Compile Include="ViewModels\SignupViewModel.cs" />
+    <Compile Include="ViewModels\StartPageViewModel.cs" />
+    <Compile Include="Views\ChatGridView.xaml.cs">
+      <DependentUpon>ChatGridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditChatLineView.xaml.cs">
       <DependentUpon>EditChatLineView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HeadChatLineView.xaml.cs">
       <DependentUpon>HeadChatLineView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MessagesFeedView.xaml.cs">
       <DependentUpon>MessagesFeedView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MessageBlockView.xaml.cs">
       <DependentUpon>MessageBlockView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfileLineView.xaml.cs">
+      <DependentUpon>ProfileLineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ServerStateLineView.xaml.cs">
+      <DependentUpon>ServerStateLineView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
@@ -94,11 +123,31 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\SignupView.xaml.cs">
+      <DependentUpon>SignupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StartPageView.xaml.cs">
+      <DependentUpon>StartPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TargetChatInfoView.xaml.cs">
+      <DependentUpon>TargetChatInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TargetProfileInfoView.xaml.cs">
+      <DependentUpon>TargetProfileInfoView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\ChatGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EditChatLineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\HeadChatLineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,9 +159,33 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ProfileLineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ServerStateLineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SignupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StartPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TargetChatInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TargetProfileInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +220,11 @@
       <Project>{a6ec7bb9-ec83-4887-abba-bd5ed7f08dd3}</Project>
       <Name>NetworkLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PolymorphismSharp\PolymorphismSharp.csproj">
+      <Project>{689c36fb-4ffb-419a-9c4a-74a1ae8d92ac}</Project>
+      <Name>PolymorphismSharp</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
