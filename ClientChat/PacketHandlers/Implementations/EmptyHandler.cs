@@ -1,4 +1,4 @@
-﻿using SharpChat.Manager;
+﻿using SharpChat.Management;
 using SharpChat.Network;
 using SharpChat.Network.Packets;
 using SharpChat.Network.Packets.Requests;
@@ -13,7 +13,7 @@ namespace SharpChat.PacketHandlers.Implementations
 {
     class EmptyHandler : PacketHandlerBase<EmptyResponse>
     {
-        public override void Call(EmptyResponse packet, INetworkClientConnector connector, IClientManager manager)
+        public override void Call(EmptyResponse packet, IClientManager manager)
         {
         }
     }

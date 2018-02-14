@@ -2,6 +2,8 @@
 using SharpChat.Extentions;
 using SharpChat.Network.Packets;
 using SharpChat.Network.Packets.Requests;
+using SharpChat.ViewModels.Authorization;
+using SharpChat.ViewModels.Chat;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,15 +17,32 @@ namespace SharpChat.ViewModels
 {
     partial class  ShellViewModel : Screen
     {
-        private PropertyChangedBase _content;
         public PropertyChangedBase Content
         {
-            get { return _content; }
+            get { return EventContent == null ? MainContent : EventContent; }
+        }
+        private PropertyChangedBase _mainContent;
+        public PropertyChangedBase MainContent
+        {
+            get { return _mainContent; }
             set
             {
-                if (value != null && value.GetType().IsOneOf(typeof(ChatGridViewModel), typeof(StartPageViewModel)))
+                if (value != null && value.GetType().IsOneOf(typeof(ChatGridViewModel), typeof(AuthorizationViewModel)))
                 {
-                    _content = value;
+                    _mainContent = value;
+                    NotifyOfPropertyChange(() => Content);
+                }
+            }
+        }
+        private PropertyChangedBase _eventContent;
+        public PropertyChangedBase EventContent
+        {
+            get { return _eventContent; }
+            set
+            {
+                if (value == null || value.GetType().IsOneOf(typeof(WindowBoxViewModel)))
+                {
+                    _eventContent = value;
                     NotifyOfPropertyChange(() => Content);
                 }
             }

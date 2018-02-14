@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="SharpChat.Views.Chat.ChatGridView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SharpChat.Views.Chat"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="700">
+    <Border Grid.Row="0"  BorderBrush="DimGray" BorderThickness="1">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="200" Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition MinWidth="200" Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"  BorderBrush="DimGray" BorderThickness="1">
+                    <ContentControl x:Name="MyProfileLine"/>
+                </Border>
+                <Border Grid.Row="1"  BorderBrush="DimGray" BorderThickness="1">
+                    <ContentControl/>
+                </Border>
+                <Border Grid.Row="2"  BorderBrush="DimGray" BorderThickness="1">
+                    <ContentControl/>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"  BorderBrush="DimGray" BorderThickness="1">
+                    <ContentControl x:Name="HeadChatLine"/>
+                </Border>
+                <Border Grid.Row="1"  BorderBrush="DimGray" BorderThickness="1">
+                    <ContentControl x:Name="MessagesFeed"/>
+                </Border>
+                <Border Grid.Row="2"  BorderBrush="DimGray" BorderThickness="1">
+                    <ContentControl x:Name="EditChatLine"/>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"  BorderBrush="DimGray" BorderThickness="1">
+                    <ContentControl x:Name="ServerStateLine"/>
+                </Border>
+                <Border Grid.Row="1"  BorderBrush="DimGray" BorderThickness="1">
+                    <ContentControl/>
+                </Border>
+            </Grid>
+
+        </Grid>
+    </Border>
+</UserControl>

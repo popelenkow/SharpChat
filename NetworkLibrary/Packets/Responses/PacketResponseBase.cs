@@ -9,6 +9,5 @@ namespace SharpChat.Network.Packets.Responses
     [Serializable]
     public abstract class PacketResponseBase : IPacketResponse
     {
-        public int InnerId { get; set; }
     }
 }

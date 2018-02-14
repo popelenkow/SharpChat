@@ -1,9 +1,10 @@
-﻿using SharpChat.Manager;
+﻿using SharpChat.Management;
 using SharpChat.Network;
 using SharpChat.Network.Packets;
 using SharpChat.Network.Packets.Requests;
 using SharpChat.Network.Packets.Responses;
 using SharpChat.ViewModels;
+using SharpChat.ViewModels.Chat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace SharpChat.PacketHandlers.Implementations
 {
     class SendMessageHandler : PacketHandlerBase<SendMessageResponseLuck>
     {
-        public override void Call(SendMessageResponseLuck packet, INetworkClientConnector connector, IClientManager manager)
+        public override void Call(SendMessageResponseLuck packet, IClientManager manager)
         {
-            var content = manager.GetContent<ChatGridViewModel>();
+            var content = (ChatGridViewModel)manager.MainContent;
             if (content == null) return;
             var ms = content.MessagesFeed.Messages;
             var vm = new MessageBlockViewModel

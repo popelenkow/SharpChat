@@ -1,5 +1,5 @@
 ﻿using PolymorphismSharp.Static.Methods;
-using SharpChat.Manager;
+using SharpChat.Management;
 using SharpChat.Network;
 using SharpChat.Network.Packets;
 using SharpChat.Network.Packets.Requests;
@@ -15,6 +15,6 @@ namespace SharpChat.PacketHandlers
     interface IPacketHandler<TPacket> : IMultiMethod
         where TPacket : IPacketResponse
     {
-        void Call(TPacket packet, INetworkClientConnector connector, IClientManager manager);
+        void Call(TPacket packet, IClientManager manager);
     }
 }

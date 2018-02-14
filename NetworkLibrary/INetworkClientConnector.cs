@@ -8,5 +8,6 @@ namespace SharpChat.Network
         void Send(IPacketRequest packet);
         IPacketResponse Receive();
         void Close();
+        bool IsClosed { get; }
     }
 }

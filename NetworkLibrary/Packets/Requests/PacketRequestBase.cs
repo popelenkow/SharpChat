@@ -9,6 +9,5 @@ namespace SharpChat.Network.Packets.Requests
     [Serializable]
     public abstract class PacketRequestBase : IPacketRequest
     {
-        public int InnerId { get; set; }
     }
 }

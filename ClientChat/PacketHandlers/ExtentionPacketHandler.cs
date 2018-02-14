@@ -1,5 +1,5 @@
 ﻿using PolymorphismSharp.Static.Dispatchers;
-using SharpChat.Manager;
+using SharpChat.Management;
 using SharpChat.Network;
 using SharpChat.Network.Packets;
 using SharpChat.Network.Packets.Requests;
@@ -19,10 +19,10 @@ namespace SharpChat.PacketHandlers
         {
             _dispatcher = new DispatcherMultiMethod<IPacketHandler<IPacketResponse>>();
         }
-        public static void Handle(this IPacketResponse packet, INetworkClientConnector connector, IClientManager manager)
+        public static void Handle(this IPacketResponse packet, IClientManager manager)
         {
             _dispatcher.GetMethod(packet)
-                       .Call(packet, connector, manager);
+                       .Call(packet, manager);
         }
     }
 }

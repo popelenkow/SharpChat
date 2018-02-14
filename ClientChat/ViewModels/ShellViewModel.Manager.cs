@@ -1,4 +1,4 @@
-﻿using SharpChat.Manager;
+﻿using SharpChat.Management;
 using SharpChat.Network;
 using SharpChat.Network.Packets.Requests;
 using System;
@@ -10,6 +10,9 @@ using System.Windows.Threading;
 using SharpChat.PacketHandlers;
 using System.ComponentModel;
 using Caliburn.Micro;
+using System.Windows;
+using SharpChat.ViewModels.Chat;
+using SharpChat.ViewModels.Authorization;
 
 namespace SharpChat.ViewModels
 {
@@ -20,9 +23,9 @@ namespace SharpChat.ViewModels
         public ShellViewModel()
         {
             ConnectionInspector = new ConnectionInspector(this);
-            Content = new StartPageViewModel(this);
+            MainContent = new AuthorizationViewModel(this);
             ConnectionInspector.PropertyChanged += this.OnServerPropertyChanged;
-
+            
         }
        
         protected override void OnDeactivate(bool close)
@@ -44,7 +47,6 @@ namespace SharpChat.ViewModels
             var p = new SendMessageRequest
             {
                 IdChat = 1,
-                InnerId = 2,
                 IsPersonChat = true,
                 Text = text
             };
@@ -57,7 +59,11 @@ namespace SharpChat.ViewModels
             {
                 if (!ConnectionInspector.IsConnected && Content.GetType() == typeof(ChatGridViewModel))
                 {
-                    Content = new StartPageViewModel(this);
+                    EventContent = new WindowBoxViewModel(this)
+                    {
+                        Text = "Sorry! Server disconnect."
+                    };
+                    MainContent = new AuthorizationViewModel(this);
                 }
             }
         }

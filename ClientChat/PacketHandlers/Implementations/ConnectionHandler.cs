@@ -1,4 +1,4 @@
-﻿using SharpChat.Manager;
+﻿using SharpChat.Management;
 using SharpChat.Network;
 using SharpChat.Network.Packets.Responses;
 using System;
@@ -11,7 +11,7 @@ namespace SharpChat.PacketHandlers.Implementations
 {
     class ConnectionHandler : PacketHandlerBase<ConnectionResponse>
     {
-        public override void Call(ConnectionResponse packet, INetworkClientConnector connector, IClientManager manager)
+        public override void Call(ConnectionResponse packet, IClientManager manager)
         {
             manager.ConnectionInspector.UpdateConnection(packet);
         }

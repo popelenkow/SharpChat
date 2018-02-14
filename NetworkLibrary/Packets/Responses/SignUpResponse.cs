@@ -7,18 +7,23 @@ using System.Threading.Tasks;
 namespace SharpChat.Network.Packets.Responses
 {
     [Serializable]
-    public class SignUpResponseBase : PacketResponseBase
+    public abstract class SignUpResponseBase : PacketResponseBase
     {
 
     }
     [Serializable]
-    class SignUpResponseLuck : SignUpResponseBase
+    public class SignUpResponseLuck : SignUpResponseBase
     {
 
     }
     [Serializable]
-    class SignUpResponseFail : SignUpResponseBase
+    public class SignUpResponseFail : SignUpResponseBase
     {
-
+        public enum FailInfo
+        {
+            NotSpectator,
+            ExistsEmail
+        }
+        public FailInfo Info { get; set; }
     }
 }

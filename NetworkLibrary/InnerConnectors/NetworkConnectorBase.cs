@@ -19,6 +19,7 @@ namespace SharpChat.Network.InnerConnectors
         where TPacketSend : class, IPacket
         where TPacketReceive : class, IPacket
     {
+        public bool IsClosed { get; set; } = false;
         private byte[] _memoryReceive = new byte[100];
         private MemoryStream _streamReceive = new MemoryStream();
         private BinaryFormatter _formatter = new BinaryFormatter();
@@ -33,10 +34,15 @@ namespace SharpChat.Network.InnerConnectors
         {
             try
             {
-                if (_tcp.Connected)
+                if (!IsClosed)
                 {
-                    _tcp.Close();
+                    IsClosed = true;
+                    if (_tcp.Connected)
+                    {
+                        _tcp.Close();
+                    }
                 }
+                
             }
             catch (SocketException ex)
             {
@@ -45,6 +51,11 @@ namespace SharpChat.Network.InnerConnectors
         }
         public void Send(TPacketSend packet)
         {
+            if (_tcp?.Connected == false)
+            {
+                Close();
+                return;
+            }
             try
             {
                 MemoryStream ms = new MemoryStream();
@@ -61,6 +72,11 @@ namespace SharpChat.Network.InnerConnectors
         }
         public TPacketReceive Receive()
         {
+            if (_tcp?.Connected == false)
+            {
+                Close();
+                return null;
+            }
             TPacketReceive packet = null;
             try
             {

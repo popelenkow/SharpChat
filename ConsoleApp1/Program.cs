@@ -19,7 +19,6 @@ namespace SharpChat
     {
         static void Main(string[] args)
         {
-            int id = 0;
             TcpClient client = null;
             try
             {
@@ -31,7 +30,6 @@ namespace SharpChat
                     var sp = new SendMessageRequest
                     {
                         IdChat = 4,
-                        InnerId = id++,
                         IsPersonChat = true,
                         Text = "fdfsdff"
                     };
