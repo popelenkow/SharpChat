@@ -47,5 +47,5 @@ Reflection, CLOS.
 
 ### About:
 
-A self-contained library that implements the dispatching of CLOS.
+A self-written library that implements the dispatching of CLOS.
 In this project it is used to replace switch case.
