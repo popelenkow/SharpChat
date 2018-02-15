@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\App.xaml
-141462816953
+171661587424
 
-46-266774237
+60-523657061
 72811007717
-Views\Authorization\AuthorizationView.xaml;Views\Chat\ChatGridView.xaml;Views\Chat\EditChatLineView.xaml;Views\Chat\HeadChatLineView.xaml;Views\Authorization\LoginView.xaml;Views\Chat\MessagesFeedView.xaml;Views\Chat\MessageBlockView.xaml;Views\Chat\ProfileLineView.xaml;Views\Server\ServerStateLineView.xaml;Views\ShellView.xaml;Views\Authorization\SignupView.xaml;Views\Chat\TargetChatInfoView.xaml;Views\Chat\TargetProfileInfoView.xaml;Views\WindowBoxView.xaml;
+Views\Authorization\AuthorizationView.xaml;Views\Chat\ChatCollectionView.xaml;Views\Chat\ChatGridView.xaml;Views\Chat\ChatLineView.xaml;Views\Chat\EditChatLineView.xaml;Views\Chat\HeadChatLineView.xaml;Views\Authorization\LoginView.xaml;Views\Chat\MessagesFeedView.xaml;Views\Chat\MessageBlockView.xaml;Views\Chat\ProfileLineView.xaml;Views\Chat\TargetChatView.xaml;Views\Chat\TargetProfileView.xaml;Views\EventContents\CreateChatView.xaml;Views\Server\ServerStateLineView.xaml;Views\ShellView.xaml;Views\Authorization\SignupView.xaml;Views\EventContents\WindowBoxView.xaml;
 
 False
 

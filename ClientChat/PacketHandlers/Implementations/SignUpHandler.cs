@@ -1,6 +1,7 @@
 ﻿using SharpChat.Management;
 using SharpChat.Network.Packets.Responses;
 using SharpChat.ViewModels;
+using SharpChat.ViewModels.EventContents;
 using System;
 using System.Collections.Generic;
 using System.Linq;

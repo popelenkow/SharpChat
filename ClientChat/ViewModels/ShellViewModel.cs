@@ -4,6 +4,7 @@ using SharpChat.Network.Packets;
 using SharpChat.Network.Packets.Requests;
 using SharpChat.ViewModels.Authorization;
 using SharpChat.ViewModels.Chat;
+using SharpChat.ViewModels.EventContents;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -40,7 +41,7 @@ namespace SharpChat.ViewModels
             get { return _eventContent; }
             set
             {
-                if (value == null || value.GetType().IsOneOf(typeof(WindowBoxViewModel)))
+                if (value == null || value.GetType().IsOneOf(typeof(WindowBoxViewModel), typeof(CreateChatViewModel)))
                 {
                     _eventContent = value;
                     NotifyOfPropertyChange(() => Content);

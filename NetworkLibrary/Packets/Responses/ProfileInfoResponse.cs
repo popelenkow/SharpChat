@@ -9,5 +9,7 @@ namespace SharpChat.Network.Packets.Responses
     [Serializable]
     public class ProfileInfoResponse : PacketResponseBase
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

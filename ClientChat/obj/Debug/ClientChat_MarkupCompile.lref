@@ -1,17 +1,20 @@
-﻿
+﻿C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\App.xaml;;
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Authorization\AuthorizationView.xaml;;
+FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\ChatCollectionView.xaml;;
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\ChatGridView.xaml;;
+FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\ChatLineView.xaml;;
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\EditChatLineView.xaml;;
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\HeadChatLineView.xaml;;
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Authorization\LoginView.xaml;;
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\MessagesFeedView.xaml;;
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\MessageBlockView.xaml;;
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\ProfileLineView.xaml;;
+FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\TargetChatView.xaml;;
+FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\TargetProfileView.xaml;;
+FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\EventContents\CreateChatView.xaml;;
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Server\ServerStateLineView.xaml;;
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\ShellView.xaml;;
 FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Authorization\SignupView.xaml;;
-FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\TargetChatInfoView.xaml;;
-FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\Chat\TargetProfileInfoView.xaml;;
-FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\WindowBoxView.xaml;;
+FC:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\Views\EventContents\WindowBoxView.xaml;;
 

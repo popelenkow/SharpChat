@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using SharpChat.Network.Packets;
 using SharpChat.Management;
 using SharpChat.Extentions;
+using SharpChat.Models;
+using SharpChat.Network.Packets.Requests;
 
 namespace SharpChat.ViewModels.Chat
 {
@@ -25,15 +27,27 @@ namespace SharpChat.ViewModels.Chat
             }
         }
 
+        private ChatModel _chatModel;
+        public ChatModel ChatModel
+        {
+            get { return _chatModel; }
+            set
+            {
+                _chatModel = value;
+                NotifyOfPropertyChange(() => ChatModel);
+            }
+        }
+
+
         public bool CanSend
         {
-            get { return !string.IsNullOrWhiteSpace(Edit); }
+            get { return !string.IsNullOrWhiteSpace(Edit) && ChatModel != null; }
         }
         private void SubscribeCanSendChanged()
         {
             this.PropertyChanged += ((sender, e) =>
             {
-                if (e.PropertyName.IsEqualsOf("Edit"))
+                if (e.PropertyName.IsEqualsOf("Edit", "ChatModel"))
                 {
                     NotifyOfPropertyChange(() => CanSend);
                 }
@@ -42,7 +56,12 @@ namespace SharpChat.ViewModels.Chat
 
         public void Send()
         {
-            _manager.SendMessage(Edit);
+            var p = new SendMessageRequest
+            {
+                IdChat = ChatModel.Id,
+                Text = Edit
+            };
+            _manager.ConnectionInspector.Send(p);
             Edit = string.Empty;
         }
         

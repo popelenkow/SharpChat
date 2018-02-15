@@ -13,6 +13,8 @@ using Caliburn.Micro;
 using System.Windows;
 using SharpChat.ViewModels.Chat;
 using SharpChat.ViewModels.Authorization;
+using SharpChat.Models;
+using SharpChat.ViewModels.EventContents;
 
 namespace SharpChat.ViewModels
 {
@@ -47,7 +49,6 @@ namespace SharpChat.ViewModels
             var p = new SendMessageRequest
             {
                 IdChat = 1,
-                IsPersonChat = true,
                 Text = text
             };
             ConnectionInspector.Send(p);

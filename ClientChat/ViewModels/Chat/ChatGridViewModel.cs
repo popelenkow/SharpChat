@@ -1,9 +1,11 @@
 ﻿using Caliburn.Micro;
 using SharpChat.Management;
+using SharpChat.Models;
 using SharpChat.Network.Packets.Requests;
 using SharpChat.ViewModels.Server;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +14,9 @@ namespace SharpChat.ViewModels.Chat
 {
     class ChatGridViewModel : PropertyChangedBase
     {
-        private HeadChatLineViewModel _headChatLine = new HeadChatLineViewModel();
-        public HeadChatLineViewModel HeadChatLine
+        private IClientManager _manager;
+        private ChatLineViewModel _headChatLine;
+        public ChatLineViewModel HeadChatLine
         {
             get { return _headChatLine; }
             set
@@ -23,7 +26,7 @@ namespace SharpChat.ViewModels.Chat
             }
         }
 
-        private MessagesFeedViewModel _messagesFeed = new MessagesFeedViewModel();
+        private MessagesFeedViewModel _messagesFeed;
         public MessagesFeedViewModel MessagesFeed
         {
             get { return _messagesFeed; }
@@ -55,7 +58,20 @@ namespace SharpChat.ViewModels.Chat
                 NotifyOfPropertyChange(() => ServerStateLine);
             }
         }
-        private ProfileLineViewModel _myProfileLine = new ProfileLineViewModel();
+
+        private ChatCollectionViewModel _chatCollection;
+        public ChatCollectionViewModel ChatCollection
+        {
+            get { return _chatCollection; }
+            set
+            {
+                _chatCollection = value;
+                NotifyOfPropertyChange(() => ChatCollection);
+            }
+        }
+
+
+        private ProfileLineViewModel _myProfileLine;
         public ProfileLineViewModel MyProfileLine
         {
             get { return _myProfileLine; }
@@ -65,13 +81,33 @@ namespace SharpChat.ViewModels.Chat
                 NotifyOfPropertyChange(() => MyProfileLine);
             }
         }
-
+        private PropertyChangedBase _target;
+        public PropertyChangedBase Target
+        {
+            get { return _target; }
+            set
+            {
+                _target = value;
+                NotifyOfPropertyChange(() => Target);
+            }
+        }
 
         public ChatGridViewModel(IClientManager manager)
         {
+            _manager = manager;
             ServerStateLine = new ServerStateLineViewModel(manager);
             EditChatLine = new EditChatLineViewModel(manager);
+            MyProfileLine = new ProfileLineViewModel(manager);
+            MessagesFeed = new MessagesFeedViewModel(manager);
+            ChatCollection = new ChatCollectionViewModel(manager);
+            manager.ConnectionInspector.Send(new MyProfileInfoRequest());
         }
 
+
+        public List<ProfileModel> Profiles { get; } = new List<ProfileModel>();
+        public ObservableCollection<ChatModel> Chats
+        {
+            get { return ChatCollection.ChatModels; }
+        }
     }
 }

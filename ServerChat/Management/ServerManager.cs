@@ -17,7 +17,7 @@ namespace SharpChat.Management
     class ServerManager : IServerManager
     {
         public List<IUser> Users { get; } = new List<IUser>();
-        public DataB Data { get; }  = new DataB();
+        public DataBase Data { get; }  = new DataBase();
         private NetworkListener _listener;
         
         public ServerManager()

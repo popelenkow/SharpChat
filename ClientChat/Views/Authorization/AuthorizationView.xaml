@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SharpChat.Views.Authorization"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -15,13 +15,13 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border BorderBrush="DimGray"  BorderThickness="1" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <Border BorderBrush="DimGray"  BorderThickness="1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
             <ContentControl  x:Name="ServerStateLine"/>
         </Border>
-        <Border BorderBrush="DimGray"  BorderThickness="1" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <Border Width="150" Background="LightGray" CornerRadius="8" BorderBrush="DimGray"  BorderThickness="1" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center">
             <ContentControl  Margin="10" x:Name="Login"/>
         </Border>
-        <Border BorderBrush="DimGray"  BorderThickness="1" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <Border Width="150" Background="LightGray" CornerRadius="8" BorderBrush="DimGray"  BorderThickness="1" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center">
             <ContentControl Margin="10" x:Name="Signup"/>
         </Border>
     </Grid>

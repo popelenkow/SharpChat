@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,15 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB\DataB.cs" />
+    <Compile Include="DB\DataBase.cs" />
     <Compile Include="DB\Message.cs" />
     <Compile Include="DB\Chat.cs" />
     <Compile Include="DB\Profile.cs" />
     <Compile Include="Management\IServerManager.cs" />
     <Compile Include="PacketHandlers\ExtentionPacketHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\ChatInfoHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\ConnectionHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\CreateChatHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\EmptyHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\LogInHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\MyProfileInfoHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\ProfileInfoHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\SendMessageHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\SignUpHandler.cs" />
     <Compile Include="PacketHandlers\IPacketHandler.cs" />

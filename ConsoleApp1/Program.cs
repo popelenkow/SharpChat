@@ -30,7 +30,6 @@ namespace SharpChat
                     var sp = new SendMessageRequest
                     {
                         IdChat = 4,
-                        IsPersonChat = true,
                         Text = "fdfsdff"
                     };
                     connector.Send(sp);

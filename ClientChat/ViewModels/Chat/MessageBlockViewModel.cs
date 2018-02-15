@@ -1,53 +1,56 @@
 ﻿using Caliburn.Micro;
+using SharpChat.Management;
+using SharpChat.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SharpChat.Extentions;
 
 namespace SharpChat.ViewModels.Chat
 {
     class MessageBlockViewModel : PropertyChangedBase
     {
-        private string _text;
-        public string Text
+        private IClientManager _manager;
+
+        private MessageModel _messsageModel;
+        public MessageModel MessageModel
         {
-            get { return _text; }
+            get { return _messsageModel; }
             set
             {
-                _text = value;
-                NotifyOfPropertyChange(() => Text);
+                _messsageModel = value;
+                NotifyOfPropertyChange(() => MessageModel);
             }
         }
-        private int _id;
-        public int Id
+
+        private ProfileLineViewModel _profileLine;
+        public ProfileLineViewModel ProfileLine
         {
-            get { return _id; }
+            get { return _profileLine; }
             set
             {
-                _id = value;
-                NotifyOfPropertyChange(() => Id);
+                _profileLine = value;
+                NotifyOfPropertyChange(() => ProfileLine);
             }
         }
-        private int _idPerson;
-        public int IdPerson
+        private void SubscribeProfileLineChanged()
         {
-            get { return _idPerson; }
-            set
+            this.PropertyChanged += ((sender, e) =>
             {
-                _idPerson = value;
-                NotifyOfPropertyChange(() => IdPerson);
-            }
+                if (e.PropertyName.IsEqualsOf("MessageModel"))
+                {
+                    ProfileLine.ProfileModel = MessageModel.Profile;
+                }
+            });
         }
-        private string _namePerson;
-        public string NamePerson
+
+        public MessageBlockViewModel(IClientManager manager)
         {
-            get { return _namePerson; }
-            set
-            {
-                _namePerson = value;
-                NotifyOfPropertyChange(() => NamePerson);
-            }
+            _manager = manager;
+            SubscribeProfileLineChanged();
+            ProfileLine = new ProfileLineViewModel(manager);
         }
     }
 }

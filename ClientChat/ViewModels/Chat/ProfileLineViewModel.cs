@@ -4,30 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using SharpChat.Management;
+using SharpChat.Models;
 
 namespace SharpChat.ViewModels.Chat
 {
     class ProfileLineViewModel : PropertyChangedBase
     {
-        private string _id;
-        public string Id
+        private IClientManager _manager;
+
+        private ProfileModel _profileModel;
+        public ProfileModel ProfileModel
         {
-            get { return _id; }
+            get { return _profileModel; }
             set
             {
-                _id = value;
-                NotifyOfPropertyChange(() => Id);
+                _profileModel = value;
+                NotifyOfPropertyChange(() => ProfileModel);
             }
         }
-        private string _name;
-        public string Name
+
+        public void ChangeTarget()
         {
-            get { return _name; }
-            set
+            var content = (ChatGridViewModel)_manager.MainContent;
+            if (content == null) return;
+            content.Target = new TargetProfileViewModel(_manager)
             {
-                _name = value;
-                NotifyOfPropertyChange(() => Name);
-            }
+                ProfileModel = ProfileModel
+            };
+        }
+
+        public ProfileLineViewModel(IClientManager manager)
+        {
+            _manager = manager;
         }
     }
 }

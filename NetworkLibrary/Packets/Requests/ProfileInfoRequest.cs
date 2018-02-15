@@ -9,5 +9,6 @@ namespace SharpChat.Network.Packets.Requests
     [Serializable]
     public class ProfileInfoRequest : PacketRequestBase
     {
+        public int Id { get; set; }
     }
 }

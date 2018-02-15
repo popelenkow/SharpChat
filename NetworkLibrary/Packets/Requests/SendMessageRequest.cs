@@ -10,7 +10,6 @@ namespace SharpChat.Network.Packets.Requests
     public class SendMessageRequest : PacketRequestBase
     {
         public int IdChat { get; set; }
-        public bool IsPersonChat { get; set; }
         public string Text { get; set; }
     }
 }

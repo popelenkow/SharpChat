@@ -1,4 +1,5 @@
 ﻿using SharpChat.Management;
+using SharpChat.Models;
 using SharpChat.Network;
 using SharpChat.Network.Packets;
 using SharpChat.Network.Packets.Requests;
@@ -19,12 +20,26 @@ namespace SharpChat.PacketHandlers.Implementations
         {
             var content = (ChatGridViewModel)manager.MainContent;
             if (content == null) return;
-            var ms = content.MessagesFeed.Messages;
-            var vm = new MessageBlockViewModel
+            var chat = content.ChatCollection.Chats.Where(x => x.ChatModel.Id == packet.IdChat).FirstOrDefault().ChatModel;
+            var ms = chat.Messages;
+            var profile = content.Profiles.Where(x => x.Id == packet.IdProfile).FirstOrDefault();
+            if (profile == null)
             {
-                Id = 0,
-                IdPerson = 1,
-                NamePerson = "2",
+                profile = new ProfileModel
+                {
+                    Id = packet.IdProfile
+                };
+                content.Profiles.Add(profile);
+                var p = new ProfileInfoRequest
+                {
+                    Id = packet.IdProfile
+                };
+                manager.ConnectionInspector.Send(p);
+            }
+            var vm = new MessageModel
+            {
+                Id = packet.IdMessage,
+                Profile = profile,
                 Text = packet.Text
             };
             ms.Add(vm);

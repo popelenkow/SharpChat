@@ -4,6 +4,7 @@ using SharpChat.Network.Packets.Requests;
 using SharpChat.Network.Packets.Responses;
 using SharpChat.ViewModels;
 using SharpChat.ViewModels.Chat;
+using SharpChat.ViewModels.EventContents;
 using System;
 using System.Collections.Generic;
 using System.Linq;

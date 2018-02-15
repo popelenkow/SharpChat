@@ -17,16 +17,12 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0"  BorderBrush="DimGray" BorderThickness="1">
-                    <ContentControl x:Name="MyProfileLine"/>
+                    <ContentControl x:Name="ServerStateLine"/>
                 </Border>
                 <Border Grid.Row="1"  BorderBrush="DimGray" BorderThickness="1">
-                    <ContentControl/>
-                </Border>
-                <Border Grid.Row="2"  BorderBrush="DimGray" BorderThickness="1">
-                    <ContentControl/>
+                    <ContentControl x:Name="ChatCollection"/>
                 </Border>
             </Grid>
             <Grid Grid.Column="1">
@@ -52,10 +48,10 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0"  BorderBrush="DimGray" BorderThickness="1">
-                    <ContentControl x:Name="ServerStateLine"/>
+                    <ContentControl x:Name="MyProfileLine"/>
                 </Border>
                 <Border Grid.Row="1"  BorderBrush="DimGray" BorderThickness="1">
-                    <ContentControl/>
+                    <ContentControl x:Name="Target"/>
                 </Border>
             </Grid>
 

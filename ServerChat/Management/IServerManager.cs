@@ -10,7 +10,7 @@ namespace SharpChat.Management
 {
     interface IServerManager
     {
-        DataB Data { get; }
+        DataBase Data { get; }
         List<IUser> Users { get; } 
     }
 }

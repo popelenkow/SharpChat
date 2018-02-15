@@ -69,37 +69,54 @@
     </ApplicationDefinition>
     <Compile Include="Behaviors\FocusExtension.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Extentions\FindIndexExtention.cs" />
     <Compile Include="Extentions\IsEqualsOfExtention.cs" />
     <Compile Include="Extentions\IsOneOfExtention.cs" />
+    <Compile Include="Models\ChatModel.cs" />
     <Compile Include="Management\ConnectionInspector.cs" />
     <Compile Include="Management\IClientManager.cs" />
     <Compile Include="Management\IConnectionInspector.cs" />
+    <Compile Include="Models\MessageModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="PacketHandlers\ExtentionPacketHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\ConnectionHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\CreateChatHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\EmptyHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\LogInHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\MyProfileInfoHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\ProfileInfoHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\SendMessageHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\SignUpHandler.cs" />
     <Compile Include="PacketHandlers\IPacketHandler.cs" />
     <Compile Include="PacketHandlers\PacketHandlerBase.cs" />
     <Compile Include="ViewModels\Authorization\AuthorizationViewModel.cs" />
+    <Compile Include="ViewModels\Chat\ChatCollectionViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatGridViewModel.cs" />
+    <Compile Include="ViewModels\Chat\ChatLineViewModel.cs" />
     <Compile Include="ViewModels\Chat\EditChatLineViewModel.cs" />
-    <Compile Include="ViewModels\Chat\HeadChatLineViewModel.cs" />
     <Compile Include="ViewModels\Authorization\LoginViewModel.cs" />
     <Compile Include="ViewModels\Chat\MessagesFeedViewModel.cs" />
     <Compile Include="ViewModels\Chat\MessageBlockViewModel.cs" />
     <Compile Include="ViewModels\Chat\ProfileLineViewModel.cs" />
+    <Compile Include="ViewModels\Chat\TargetChatViewModel.cs" />
+    <Compile Include="ViewModels\Chat\TargetProfileViewModel.cs" />
+    <Compile Include="ViewModels\EventContents\CreateChatViewModel.cs" />
     <Compile Include="ViewModels\Server\ServerStateLineViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.Manager.cs" />
     <Compile Include="ViewModels\Authorization\SignupViewModel.cs" />
-    <Compile Include="ViewModels\WindowBoxViewModel.cs" />
+    <Compile Include="ViewModels\EventContents\WindowBoxViewModel.cs" />
     <Compile Include="Views\Authorization\AuthorizationView.xaml.cs">
       <DependentUpon>AuthorizationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Chat\ChatCollectionView.xaml.cs">
+      <DependentUpon>ChatCollectionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Chat\ChatGridView.xaml.cs">
       <DependentUpon>ChatGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Chat\ChatLineView.xaml.cs">
+      <DependentUpon>ChatLineView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Chat\EditChatLineView.xaml.cs">
       <DependentUpon>EditChatLineView.xaml</DependentUpon>
@@ -119,6 +136,15 @@
     <Compile Include="Views\Chat\ProfileLineView.xaml.cs">
       <DependentUpon>ProfileLineView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Chat\TargetChatView.xaml.cs">
+      <DependentUpon>TargetChatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Chat\TargetProfileView.xaml.cs">
+      <DependentUpon>TargetProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EventContents\CreateChatView.xaml.cs">
+      <DependentUpon>CreateChatView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Server\ServerStateLineView.xaml.cs">
       <DependentUpon>ServerStateLineView.xaml</DependentUpon>
     </Compile>
@@ -132,20 +158,22 @@
     <Compile Include="Views\Authorization\SignupView.xaml.cs">
       <DependentUpon>SignupView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Chat\TargetChatInfoView.xaml.cs">
-      <DependentUpon>TargetChatInfoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Chat\TargetProfileInfoView.xaml.cs">
-      <DependentUpon>TargetProfileInfoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WindowBoxView.xaml.cs">
+    <Compile Include="Views\EventContents\WindowBoxView.xaml.cs">
       <DependentUpon>WindowBoxView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Authorization\AuthorizationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Chat\ChatCollectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Chat\ChatGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Chat\ChatLineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,6 +201,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Chat\TargetChatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Chat\TargetProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EventContents\CreateChatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Server\ServerStateLineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,15 +225,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Chat\TargetChatInfoView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Chat\TargetProfileInfoView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowBoxView.xaml">
+    <Page Include="Views\EventContents\WindowBoxView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
