@@ -86,6 +86,14 @@ namespace SharpChat.Management
             else if (_connectionInfo == null || !_connectionInfo.IsConnected)
             {
                 IsConnected = false;
+
+                IPacketResponse p = null;
+                do
+                {
+                    p = _connector?.Receive();
+                    p?.Handle(_manager);
+                } while (p != null);
+
                 _connector.Close();
                 _connector = null;
             }

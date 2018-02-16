@@ -89,6 +89,14 @@ namespace SharpChat.Network.InnerConnectors
                     size = stream.Read(_memoryReceive, 0, _memoryReceive.Length);
                     _streamReceive.Write(_memoryReceive, 0, size);
                 }
+                
+            }
+            catch (Exception ex)
+            {
+
+            }
+            try
+            {
                 _streamReceive.Position = 0;
                 var obj = _formatter.Deserialize(_streamReceive);
                 byte[] data = _streamReceive.ToArray().Skip((int)_streamReceive.Position).ToArray();
@@ -107,7 +115,6 @@ namespace SharpChat.Network.InnerConnectors
             {
 
             }
-
             return packet;
         }
     }

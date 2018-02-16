@@ -78,6 +78,7 @@ namespace SharpChat.Models
         {
             if (!Chats.Any(x => x.Id == info.IdChat)) return;
             var model = GetMessage(info);
+            model.Text = info.Text;
             if (!_profiles.Any(x => x.Id == info.Id))
             {
                 var request = new ProfileInfoRequest { Id = info.IdProfile };
