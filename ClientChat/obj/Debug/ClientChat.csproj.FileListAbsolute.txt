@@ -58,3 +58,5 @@ C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\obj\Debug\View
 C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\obj\Debug\Views\Chat\TargetChatView.baml
 C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\obj\Debug\Views\EventContents\CreateChatView.baml
 C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\obj\Debug\Views\EventContents\WindowBoxView.baml
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\obj\Debug\Views\EventContents\InviteProfileView.g.cs
+C:\Users\VladlenMacro\YandexDisk\Prog\DotNet\SharpChat\ClientChat\obj\Debug\Views\EventContents\InviteProfileView.baml

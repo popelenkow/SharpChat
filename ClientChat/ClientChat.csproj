@@ -69,6 +69,7 @@
     </ApplicationDefinition>
     <Compile Include="Behaviors\FocusExtension.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Extentions\AddSortedExtention.cs" />
     <Compile Include="Extentions\FindIndexExtention.cs" />
     <Compile Include="Extentions\IsEqualsOfExtention.cs" />
     <Compile Include="Extentions\IsOneOfExtention.cs" />
@@ -76,13 +77,17 @@
     <Compile Include="Management\ConnectionInspector.cs" />
     <Compile Include="Management\IClientManager.cs" />
     <Compile Include="Management\IConnectionInspector.cs" />
+    <Compile Include="Models\MyProfileModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="PacketHandlers\ExtentionPacketHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\ChatInfoHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\ConnectionHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\CreateChatHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\EmptyHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\InviteProfileHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\LogInHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\MessageInfoHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\MyProfileInfoHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\ProfileInfoHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\SendMessageHandler.cs" />
@@ -101,6 +106,7 @@
     <Compile Include="ViewModels\Chat\TargetChatViewModel.cs" />
     <Compile Include="ViewModels\Chat\TargetProfileViewModel.cs" />
     <Compile Include="ViewModels\EventContents\CreateChatViewModel.cs" />
+    <Compile Include="ViewModels\EventContents\InviteProfileViewModel.cs" />
     <Compile Include="ViewModels\Server\ServerStateLineViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.Manager.cs" />
@@ -144,6 +150,9 @@
     </Compile>
     <Compile Include="Views\EventContents\CreateChatView.xaml.cs">
       <DependentUpon>CreateChatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EventContents\InviteProfileView.xaml.cs">
+      <DependentUpon>InviteProfileView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Server\ServerStateLineView.xaml.cs">
       <DependentUpon>ServerStateLineView.xaml</DependentUpon>
@@ -210,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EventContents\CreateChatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EventContents\InviteProfileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

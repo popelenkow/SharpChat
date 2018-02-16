@@ -28,7 +28,7 @@ namespace SharpChat.ViewModels.Chat
 
         private void SubscribeChatsChanged()
         {
-            ChatModels.CollectionChanged += ((sender, e) =>
+            _chatModels.CollectionChanged += ((sender, e) =>
             {
                 if (e.OldItems != null)
                 {
@@ -55,16 +55,29 @@ namespace SharpChat.ViewModels.Chat
                 }
             });
         }
+        private void InitChats()
+        {
+            foreach(var model in _chatModels)
+            {
+                var view = new ChatLineViewModel(_manager)
+                {
+                    ChatModel = model
+                };
+                Chats.Add(view);
+            }
+        }
 
-        public ObservableCollection<ChatModel> ChatModels { get; set; } = new BindableCollection<ChatModel>();
+        private ObservableCollection<ChatModel> _chatModels { get; }
         
         public void CreateChat()
         {
             _manager.EventContent = new CreateChatViewModel(_manager);
         }
-        public ChatCollectionViewModel(IClientManager manager)
+        public ChatCollectionViewModel(IClientManager manager, ObservableCollection<ChatModel> chatModels)
         {
             _manager = manager;
+            _chatModels = chatModels;
+            InitChats();
             SubscribeChatsChanged();
         }
     }

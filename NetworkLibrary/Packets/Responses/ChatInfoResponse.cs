@@ -12,5 +12,6 @@ namespace SharpChat.Network.Packets.Responses
         public int Id { get; set; }
         public string Name { get; set; }
         public int[] IdProfiles { get; set; }
+        public int[] IdMessages { get; set; }
     }
 }

@@ -16,32 +16,18 @@ namespace SharpChat.PacketHandlers.Implementations
     {
         public override void Call(MyProfileInfoResponseLuck packet, IClientManager manager)
         {
-            var content = (ChatGridViewModel)manager.MainContent;
-            if (content == null) return;
-            var p = new ProfileModel
+            var myProfile = manager.MyProfile;
+            if (myProfile == null) return;
+            myProfile.MyProfile.Id = packet.Id;
             {
-                Id = packet.Id,
-                Name = packet.Name
-            };
-            content.Profiles.Add(p);
-            foreach (var it in packet.IdChats)
-            {
-                int index = content.Chats.FindIndex(x => x.Id == it);
-                if (index == -1)
-                {
-                    var chat = new ChatModel
-                    {
-                        Id = it
-                    };
-                    content.Chats.Add(chat);
-                    var pp = new ChatInfoRequest
-                    {
-                        Id = it
-                    };
-                    manager.ConnectionInspector.Send(pp);
-                }
+                var request = new ProfileInfoRequest { Id = packet.Id };
+                manager.ConnectionInspector.Send(request);
             }
-            content.MyProfileLine.ProfileModel = p;
+            foreach (var id in packet.IdChats)
+            {
+                var request = new ChatInfoRequest { Id = id };
+                manager.ConnectionInspector.Send(request);
+            }
         }
     }
 }

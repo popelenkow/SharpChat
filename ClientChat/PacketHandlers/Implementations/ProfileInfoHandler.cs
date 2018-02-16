@@ -13,9 +13,7 @@ namespace SharpChat.PacketHandlers.Implementations
     {
         public override void Call(ProfileInfoResponse packet, IClientManager manager)
         {
-            var content = (ChatGridViewModel)manager.MainContent;
-            if (content == null) return;
-            content.Profiles.Where(x => x.Id == packet.Id).FirstOrDefault().Name = packet.Name;
+            manager.MyProfile?.AddProfileInfo(packet);
         }
     }
 }

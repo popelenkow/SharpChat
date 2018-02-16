@@ -41,7 +41,7 @@ namespace SharpChat.ViewModels
             get { return _eventContent; }
             set
             {
-                if (value == null || value.GetType().IsOneOf(typeof(WindowBoxViewModel), typeof(CreateChatViewModel)))
+                if (value == null || value.GetType().IsOneOf(typeof(WindowBoxViewModel), typeof(CreateChatViewModel), typeof(InviteProfileViewModel)))
                 {
                     _eventContent = value;
                     NotifyOfPropertyChange(() => Content);

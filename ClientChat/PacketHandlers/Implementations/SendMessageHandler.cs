@@ -18,31 +18,10 @@ namespace SharpChat.PacketHandlers.Implementations
     {
         public override void Call(SendMessageResponseLuck packet, IClientManager manager)
         {
-            var content = (ChatGridViewModel)manager.MainContent;
-            if (content == null) return;
-            var chat = content.ChatCollection.Chats.Where(x => x.ChatModel.Id == packet.IdChat).FirstOrDefault().ChatModel;
-            var ms = chat.Messages;
-            var profile = content.Profiles.Where(x => x.Id == packet.IdProfile).FirstOrDefault();
-            if (profile == null)
-            {
-                profile = new ProfileModel
-                {
-                    Id = packet.IdProfile
-                };
-                content.Profiles.Add(profile);
-                var p = new ProfileInfoRequest
-                {
-                    Id = packet.IdProfile
-                };
-                manager.ConnectionInspector.Send(p);
-            }
-            var vm = new MessageModel
-            {
-                Id = packet.IdMessage,
-                Profile = profile,
-                Text = packet.Text
-            };
-            ms.Add(vm);
+            /*
+            var request = new MessageInfoRequest { Id = packet.Id };
+            manager.ConnectionInspector.Send(request);
+            */
         }
     }
 }

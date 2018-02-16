@@ -14,7 +14,6 @@ namespace SharpChat.Network.Packets.Responses
     [Serializable]
     public class LogInResponseLuck : LogInResponseBase
     {
-
     }
     [Serializable]
     public class LogInResponseFail : LogInResponseBase

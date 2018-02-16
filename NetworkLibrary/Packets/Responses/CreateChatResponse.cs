@@ -10,7 +10,5 @@ namespace SharpChat.Network.Packets.Responses
     public class CreateChatResponse : PacketResponseBase
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int[] IdProfiles { get; set; }
     }
 }

@@ -55,7 +55,9 @@
     <Compile Include="PacketHandlers\Implementations\ConnectionHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\CreateChatHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\EmptyHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\InviteProfileHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\LogInHandler.cs" />
+    <Compile Include="PacketHandlers\Implementations\MessageInfoHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\MyProfileInfoHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\ProfileInfoHandler.cs" />
     <Compile Include="PacketHandlers\Implementations\SendMessageHandler.cs" />

@@ -22,7 +22,7 @@ PolymorphismSharp is used to process responses from the server.
 
 ### Technology and design patterns:
 
-EntityFramework , RequestHandler.
+RequestHandler, (In future: EntityFramework).
 
 ### About:
 

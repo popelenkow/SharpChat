@@ -18,23 +18,39 @@ namespace SharpChat.PacketHandlers.Implementations
         public override void Call(SendMessageRequest packet, IUser sender, IServerManager manager)
         {
             var ms = manager.Data.Messages;
-            var p = new SendMessageResponseLuck
-            {
-                IdChat = packet.IdChat,
-                Text = packet.Text,
-                IdProfile = sender.Id,
-                IdMessage = ms.Count() + 1
-            };
-            var m = new Message
+            var chat = manager.Data.Chats.Where(x => x.Id == packet.IdChat).First();
+            
+            var message = new Message
             {
                 Id = ms.Count() + 1,
                 IdProfile = sender.Id,
                 Text = packet.Text
             };
 
-            ms.Add(m);
-            manager.Data.Chats.Where(x => x.Id == packet.IdChat).First().Messages.Add(m);
-            sender.Connector.Send(p);
+            ms.Add(message);
+            chat.Messages.Add(message);
+
+
+            var response = new SendMessageResponseLuck
+            {
+                Id = message.Id
+            };
+            sender.Connector.Send(response);
+
+
+
+            var users = manager.Users.Where(x => x.IsLogIn && chat.Profiles.Any(y => y.Id == x.Id));
+            foreach (var user in users)
+            {
+                var p = new MessageInfoResponse
+                {
+                    Id = message.Id,
+                    Text = message.Text,
+                    IdChat = chat.Id,
+                    IdProfile = message.IdProfile
+                };
+                user.Connector.Send(p);
+            }
         }
     }
 }

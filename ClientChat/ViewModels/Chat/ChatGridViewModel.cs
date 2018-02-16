@@ -92,22 +92,24 @@ namespace SharpChat.ViewModels.Chat
             }
         }
 
+        public MyProfileModel MyProfile { get; }
+
         public ChatGridViewModel(IClientManager manager)
         {
             _manager = manager;
+            MyProfile = new MyProfileModel(manager);
             ServerStateLine = new ServerStateLineViewModel(manager);
             EditChatLine = new EditChatLineViewModel(manager);
-            MyProfileLine = new ProfileLineViewModel(manager);
-            MessagesFeed = new MessagesFeedViewModel(manager);
-            ChatCollection = new ChatCollectionViewModel(manager);
-            manager.ConnectionInspector.Send(new MyProfileInfoRequest());
+            //MessagesFeed = new MessagesFeedViewModel(manager);
+            MyProfileLine = new ProfileLineViewModel(manager)
+            {
+                ProfileModel = MyProfile.MyProfile
+            };
+            ChatCollection = new ChatCollectionViewModel(manager, MyProfile.Chats);
         }
 
 
-        public List<ProfileModel> Profiles { get; } = new List<ProfileModel>();
-        public ObservableCollection<ChatModel> Chats
-        {
-            get { return ChatCollection.ChatModels; }
-        }
+        
+       
     }
 }

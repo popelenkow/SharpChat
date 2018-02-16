@@ -22,6 +22,14 @@ namespace SharpChat.ViewModels
     {
         public IConnectionInspector ConnectionInspector { get; private set; }
 
+        public MyProfileModel MyProfile
+        {
+            get
+            {
+                return ((ChatGridViewModel)MainContent)?.MyProfile;
+            }
+        }
+
         public ShellViewModel()
         {
             ConnectionInspector = new ConnectionInspector(this);

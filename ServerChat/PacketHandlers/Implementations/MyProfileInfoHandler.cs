@@ -21,7 +21,6 @@ namespace SharpChat.PacketHandlers.Implementations
                 p = new MyProfileInfoResponseLuck
                 {
                     Id = sender.Id,
-                    Name = manager.Data.Profiles.Where(x => x.Id == sender.Id).First().Name,
                     IdChats = idChats
                 };
             }

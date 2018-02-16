@@ -14,16 +14,8 @@ namespace SharpChat.ViewModels.Chat
     {
         private IClientManager _manager;
 
-        private MessageModel _messsageModel;
-        public MessageModel MessageModel
-        {
-            get { return _messsageModel; }
-            set
-            {
-                _messsageModel = value;
-                NotifyOfPropertyChange(() => MessageModel);
-            }
-        }
+        public MessageModel MessageModel { get; }
+
 
         private ProfileLineViewModel _profileLine;
         public ProfileLineViewModel ProfileLine
@@ -37,20 +29,24 @@ namespace SharpChat.ViewModels.Chat
         }
         private void SubscribeProfileLineChanged()
         {
-            this.PropertyChanged += ((sender, e) =>
+            MessageModel.PropertyChanged += ((sender, e) =>
             {
-                if (e.PropertyName.IsEqualsOf("MessageModel"))
+                if (e.PropertyName.IsEqualsOf("Profile"))
                 {
                     ProfileLine.ProfileModel = MessageModel.Profile;
                 }
             });
         }
 
-        public MessageBlockViewModel(IClientManager manager)
+        public MessageBlockViewModel(IClientManager manager, MessageModel messageModel)
         {
             _manager = manager;
+            MessageModel = messageModel;
             SubscribeProfileLineChanged();
-            ProfileLine = new ProfileLineViewModel(manager);
+            ProfileLine = new ProfileLineViewModel(manager)
+            {
+                ProfileModel = messageModel.Profile
+            };
         }
     }
 }

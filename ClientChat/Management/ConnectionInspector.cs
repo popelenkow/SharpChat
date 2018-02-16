@@ -66,7 +66,12 @@ namespace SharpChat.Management
 
         private void ReceivePacketHandler(object sender, EventArgs e)
         {
-            _connector?.Receive()?.Handle(_manager);
+            IPacketResponse p = null;
+            do
+            {
+                p = _connector?.Receive();
+                p?.Handle(_manager);
+            } while (p != null);
         }
  
 

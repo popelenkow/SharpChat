@@ -1,5 +1,6 @@
 ﻿using SharpChat.Management;
 using SharpChat.Models;
+using SharpChat.Network.Packets.Requests;
 using SharpChat.Network.Packets.Responses;
 using SharpChat.ViewModels.Chat;
 using System;
@@ -14,16 +15,8 @@ namespace SharpChat.PacketHandlers.Implementations
     {
         public override void Call(CreateChatResponse packet, IClientManager manager)
         {
-            var content = (ChatGridViewModel)manager.MainContent;
-            if (content == null) return;
-            var model = new ChatModel
-            {
-                Id = packet.Id,
-                Name = packet.Name,
-                
-            };
-            model.Profiles.Add(content.Profiles.Where(x => x.Id == packet.IdProfiles.First()).First());
-            content.Chats.Add(model);
+            var request = new ChatInfoRequest { Id = packet.Id };
+            manager.ConnectionInspector.Send(request);
         }
     }
 }

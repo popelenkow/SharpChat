@@ -13,10 +13,7 @@ namespace SharpChat.Network.Packets.Responses
     [Serializable]
     public class SendMessageResponseLuck : SendMessageResponseBase
     {
-        public int IdChat { get; set; }
-        public int IdMessage { get; set; }
-        public int IdProfile { get; set; }
-        public string Text { get; set; }
+        public int Id { get; set; }
     }
     [Serializable]
     public class SendMessageResponseFail : SendMessageResponseBase

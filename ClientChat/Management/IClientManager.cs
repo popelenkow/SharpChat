@@ -10,9 +10,9 @@ namespace SharpChat.Management
 {
     interface IClientManager
     {
-        void SendMessage(string text);
         PropertyChangedBase MainContent { get; set; }
         PropertyChangedBase EventContent { get; set; }
         IConnectionInspector ConnectionInspector { get; }
+        MyProfileModel MyProfile { get; }
     }
 }

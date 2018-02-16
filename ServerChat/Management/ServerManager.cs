@@ -11,6 +11,7 @@ using SharpChat.PacketHandlers;
 using SharpChat.Network;
 using SharpChat.Management.Users;
 using SharpChat.DB;
+using SharpChat.Network.Packets.Requests;
 
 namespace SharpChat.Management
 {
@@ -41,12 +42,16 @@ namespace SharpChat.Management
                     }
                     foreach(var user in Users)
                     {
-                        var p = user.Connector.Receive();
-                        if (p != null)
+                        IPacketRequest p;
+                        do
                         {
-                            Console.WriteLine(p.GetType());
-                        }
-                        p?.Handle(user, this);
+                            p = user.Connector.Receive();
+                            if (p != null)
+                            {
+                                Console.WriteLine(p.GetType());
+                            }
+                            p?.Handle(user, this);
+                        } while (p != null);
                     }
                     var arr = Users.Where(x => x.Connector.IsClosed).ToList();
                     foreach (var it in arr)

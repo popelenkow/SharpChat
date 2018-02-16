@@ -50,7 +50,9 @@
     <Compile Include="InnerConnectors\NetworkServerConnector.cs" />
     <Compile Include="Packets\Requests\ConnectionRequest.cs" />
     <Compile Include="Packets\Requests\CreateChatRequest.cs" />
+    <Compile Include="Packets\Requests\InviteProfileRequest.cs" />
     <Compile Include="Packets\Requests\LogInRequest.cs" />
+    <Compile Include="Packets\Requests\MessageInfoRequest.cs" />
     <Compile Include="Packets\Requests\PacketRequestBase.cs" />
     <Compile Include="Packets\Requests\SignUpRequest.cs" />
     <Compile Include="Packets\Responses\ConnectionResponse.cs" />
@@ -58,8 +60,10 @@
     <Compile Include="Packets\Responses\EmptyResponse.cs" />
     <Compile Include="Packets\Responses\ChatInfoResponse.cs" />
     <Compile Include="Packets\Requests\IPacketRequest.cs" />
+    <Compile Include="Packets\Responses\InviteProfileResponse.cs" />
     <Compile Include="Packets\Responses\IPacketResponse.cs" />
     <Compile Include="Packets\Responses\LogInResponse.cs" />
+    <Compile Include="Packets\Responses\MessageInfoResponse.cs" />
     <Compile Include="Packets\Responses\PacketResponseBase.cs" />
     <Compile Include="Packets\IPacket.cs" />
     <Compile Include="Packets\Requests\SendMessageRequest.cs" />

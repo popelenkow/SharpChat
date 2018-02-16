@@ -16,22 +16,19 @@ namespace SharpChat.PacketHandlers.Implementations
         public override void Call(CreateChatRequest packet, IUser sender, IServerManager manager)
         {
             if (!sender.IsLogIn) return;
+
             var chat = new Chat
             {
                 Id = manager.Data.Chats.Count + 1,
                 Name = packet.Name
             };
             chat.Profiles.Add(manager.Data.Profiles.Where(x => x.Id == sender.Id).First());
+            manager.Data.Chats.Add(chat);
+
             var p = new CreateChatResponse
             {
-                Id = chat.Id,
-                Name = chat.Name
+                Id = chat.Id
             };
-            p.IdProfiles = new int[]
-            {
-                sender.Id
-            };
-            manager.Data.Chats.Add(chat);
             sender.Connector.Send(p);
         }
     }

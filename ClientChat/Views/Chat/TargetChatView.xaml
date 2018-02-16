@@ -12,21 +12,23 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="Chat" HorizontalAlignment="Center"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <TextBlock Text="Id: "/>
-            <TextBlock Text="{Binding ProfileModel.Id}"/>
+            <TextBlock Text="{Binding ChatModel.Id}"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <TextBlock Text="Name: "/>
-            <TextBlock Text="{Binding ProfileModel.Name}"/>
+            <TextBlock Text="{Binding ChatModel.Name}"/>
         </StackPanel>
-        <StackPanel Grid.Row="3" Orientation="Vertical">
-            <TextBlock Text="Profiles: "/>
-            <ScrollViewer>
-                <StackPanel Orientation="Vertical" x:Name="Profiles"/>
-            </ScrollViewer>
-        </StackPanel>
+        <TextBlock  Grid.Row="3"  Text="Profiles: "/>
+        <ScrollViewer Grid.Row="4">
+            <ItemsControl x:Name="Profiles"/>
+        </ScrollViewer>
+
+        <Button Grid.Row="5" x:Name="InviteProfile">Invite profile</Button>
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using SharpChat.Management;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,8 @@ namespace SharpChat.Models
 {
     class ChatModel : PropertyChangedBase
     {
+        public IClientManager Manager { get; set; }
+
         private int _id;
         public int Id
         {
